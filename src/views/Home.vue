@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
     <button @click = "handleClick('back')">返回上一页</button>
     <button @click = "handleClick('push')">跳转到parent</button>
     <button @click = "handleClick('replace')">replace到parent</button>
@@ -11,12 +11,12 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '_c/HelloWorld.vue'
+//import HelloWorld from '_c/HelloWorld.vue'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+//    HelloWorld
   },
   props: {
     food: {
