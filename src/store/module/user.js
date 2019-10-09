@@ -11,7 +11,11 @@ const mutations = {
     state.userName = params
   }
 }
-const actions = {}
+const actions = {
+  updateUserName ({ commit, state, rootState, dispatch }) {
+
+  }
+}
 
 export default {
   // namespaced: true,

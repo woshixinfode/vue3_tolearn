@@ -10,6 +10,9 @@
     <button @click="handleChangeAppName">修改appname</button>
     <p>{{ appVersion }}</p>
     <button @click="handleChangeUserName">修改username</button>
+    <button @click="registerModule">动态注册模块</button>
+
+    <p v-for="(li, index) in todoList" :key="index">{{ li }}</p>
   </div>
 </template>
 <script type="text/ecmascript-6">
@@ -53,6 +56,16 @@
         handleChangeUserName () {
           this.SET_USER_NAME('liuzhiqiang')
 //          this.$store.dispatch('updateAppName', '123')
+        },
+        registerModule () {
+          this.$store.registerModule(['user', 'todo'], {
+            state: {
+              todoList: [
+                '学习mutations',
+                '学习actions'
+              ]
+            }
+          })
         }
       },
       computed: {
@@ -63,7 +76,8 @@
         ...mapState({
           appName: state => state.appName,
           userName: state => state.user.userName,
-          appVersion: state => state.appVersion
+          appVersion: state => state.appVersion,
+          todoList : state => state.user.todo ? state.user.todo.todoList : []
         }),
         ...mapGetters([
           'appWithVersion',
